@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Authentication - Rift Seer</title>
+    <style>
+        .green-btn {
+            background-color: #34d399;
+        }
+        .green-btn:hover {
+            background-color: #2e8b57;
+        }
+    </style>
+</head>
+<body class="bg-[#121212] min-h-screen">
+
+    <!-- Navbar -->
+    {{ template "navbar.html" . }}
+
+    <!-- Combined Auth Form -->
+    <div class="bg-gradient-to-r from-black via-gray-800 to-black py-16 mx-auto my-6 rounded-3xl shadow-lg max-w-6xl w-full mx-4">
+        <div class="container mx-auto px-8" x-data="{ isLogin: true }">
+            <!-- Form Toggle -->
+            <div class="flex justify-center mb-8 space-x-4">
+                <button @click="isLogin = true"
+                        :class="isLogin ? 'text-green-400 border-b-2 border-green-400' : 'text-white'"
+                        class="pb-2 px-4 transition duration-300">
+                    Login
+                </button>
+                <button @click="isLogin = false"
+                        :class="!isLogin ? 'text-green-400 border-b-2 border-green-400' : 'text-white'"
+                        class="pb-2 px-4 transition duration-300">
+                    Register
+                </button>
+            </div>
+
+            <!-- Login Form -->
+            <form x-show="isLogin"
+                  x-data="{ email: '', password: '', error: '' }"
+                  @submit.prevent="// Your login logic here"
+                  class="space-y-6">
+                <div>
+                    <label class="block text-white mb-2">Email</label>
+                    <input type="email" x-model="email" required
+                           class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-green-400 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-white mb-2">Password</label>
+                    <input type="password" x-model="password" required
+                           class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-green-400 focus:outline-none">
+                </div>
+                <div class="text-red-400" x-show="error" x-text="error"></div>
+                <button type="submit" class="green-btn w-full py-2 rounded-lg text-white font-semibold">
+                    Login
+                </button>
+            </form>
+
+            <!-- Register Form -->
+            <form x-show="!isLogin"
+                  x-data="{ username: '', summonerName: '', email: '', password: '', error: '' }"
+                  @submit.prevent="// Your registration logic here"
+                  class="space-y-6">
+                <div>
+                    <label class="block text-white mb-2">Username</label>
+                    <input type="text" x-model="username" required
+                           class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-green-400 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-white mb-2">Summoner Name</label>
+                    <input type="text" x-model="summonerName" required
+                           class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-green-400 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-white mb-2">Email</label>
+                    <input type="email" x-model="email" required
+                           class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-green-400 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-white mb-2">Password</label>
+                    <input type="password" x-model="password" required
+                           class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-green-400 focus:outline-none">
+                </div>
+                <div class="text-red-400" x-show="error" x-text="error"></div>
+                <button type="submit" class="green-btn w-full py-2 rounded-lg text-white font-semibold">
+                    Register
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

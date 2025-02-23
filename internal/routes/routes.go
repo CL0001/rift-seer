@@ -8,9 +8,13 @@ import (
 
 func RegisterRoutes(router *echo.Echo) {
 	router.GET("/", handlers.HomePage)
+	router.GET("/auth", handlers.AuthPage)
+	router.GET("/about", handlers.AboutPage)
 
-	router.POST("/register", auth.RegisterUser)
-	router.POST("/login", auth.LoginUser)
+	router.POST("/auth/register", auth.RegisterUser)
+	router.POST("/auth/login", auth.LoginUser)
+
+	router.GET("/dashboard", handlers.DashboardPage)
 
 //	router.GET("/dashboard", auth.IsAuthenticated())
 }
