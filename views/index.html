@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <title>Document</title>
+        <style>
+            .pastel-green {
+                color: #98FB98; /* Pastel green color */
+            }
+
+            .green-btn {
+                background-color: #34d399; /* Tailwind's green-400 */
+            }
+
+            .green-btn:hover {
+                background-color: #2e8b57; /* Hover color */
+            }
+        </style>
+    </head>
+    <body class="bg-[#121212]">
+        {{ template "navbar.html" . }}
+
+         <!-- Hero Section -->
+         <section class="bg-gradient-to-r from-black via-gray-800 to-black py-16 mx-auto my-6 rounded-3xl shadow-lg max-w-6xl">
+             <div class="container mx-auto flex flex-col justify-center items-center text-center text-white px-8 sm:px-16">
+                 <h1 class="text-4xl sm:text-5xl font-bold mb-4">Welcome to Rift Seer</h1>
+                 <p class="text-lg sm:text-xl mb-8">
+                     Your ultimate source for <span class="pastel-green">player game performance statistics and insights</span>.
+                     Explore the latest data, trends, and strategies for success.
+                 </p>
+                 <a href="#get-started" class="green-btn text-white py-3 px-8 rounded-full transition duration-300">Get Started</a>
+             </div>
+         </section>
+
+        <!-- Features and Benefits Section -->
+        <section class="bg-gradient-to-r from-black via-gray-800 to-black py-16 mx-auto my-6 rounded-3xl shadow-lg max-w-6xl">
+            <div class="container mx-auto text-center text-white">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-6">Features & Benefits</h2>
+                <p class="text-lg sm:text-xl mb-8">Our service provides you with a range of features designed to optimize your gaming performance and strategies:</p>
+                <ul class="space-y-4 text-left mx-auto max-w-4xl">
+                    <li><span class="pastel-green">Performance tracking</span> for accurate feedback on gameplay.</li>
+                    <li><span class="pastel-green">In-depth analytics</span> to help improve your strategy and decision-making.</li>
+                    <li><span class="pastel-green">Customizable reports</span> to suit your specific needs and preferences.</li>
+                    <li><span class="pastel-green">Seamless integration</span> with popular gaming platforms and tools.</li>
+                </ul>
+                <a href="#features" class="green-btn text-white py-3 px-8 rounded-full transition duration-300 mt-8 inline-block">Learn More</a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="bg-gradient-to-r from-black via-gray-800 to-black py-16 mx-auto my-6 rounded-3xl shadow-lg max-w-6xl">
+            <div class="container mx-auto text-center text-white">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-6">Frequently Asked Questions</h2>
+                <div class="text-lg sm:text-xl space-y-4 max-w-4xl mx-auto">
+
+                    <div x-data="{ open: false }">
+                        <p @click="open = !open" class="cursor-pointer font-semibold pastel-green">
+                            How does Rift Seer work?
+                        </p>
+                        <div x-show="open" x-transition.duration.300ms class="mt-2">
+                            <p>Rift Seer collects performance data and analyzes your gameplay to provide actionable insights for improvement.</p>
+                        </div>
+                    </div>
+
+                    <div x-data="{ open: false }">
+                        <p @click="open = !open" class="cursor-pointer font-semibold pastel-green">
+                            Which games does Rift Seer support?
+                        </p>
+                        <div x-show="open" x-transition.duration.300ms class="mt-2">
+                            <p>Currently, Rift Seer is aimed at League of Legends players, but we plan to expand into Valorant, CS2, and many others.</p>
+                        </div>
+                    </div>
+
+                    <div x-data="{ open: false }">
+                        <p @click="open = !open" class="cursor-pointer font-semibold pastel-green">
+                            Is Rift Seer free?
+                        </p>
+                        <div x-show="open" x-transition.duration.300ms class="mt-2">
+                            <p>Yes, Rift Seer is free to use! However, a premium version will be available in the future for those who want better statistics with higher quality and also support this service.</p>
+                        </div>
+                    </div>
+
+                    <div x-data="{ open: false }">
+                        <p @click="open = !open" class="cursor-pointer font-semibold pastel-green">
+                            Who can benefit from Rift Seer?
+                        </p>
+                        <div x-show="open" x-transition.duration.300ms class="mt-2">
+                            <p>Gamers, esports teams, and coaches can all use Rift Seer to enhance their gaming strategies.</p>
+                        </div>
+                    </div>
+
+                    <div x-data="{ open: false }">
+                        <p @click="open = !open" class="cursor-pointer font-semibold pastel-green">
+                            Do I need to install anything?
+                        </p>
+                        <div x-show="open" x-transition.duration.300ms class="mt-2">
+                            <p>No installation required. Simply sign up and integrate your account with Rift Seer.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Last Call to Action -->
+        <section class="bg-gradient-to-r from-black via-gray-800 to-black py-16 mx-auto my-6 rounded-3xl shadow-lg max-w-6xl">
+            <div class="container mx-auto text-center text-white px-8 sm:px-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-6">Ready to Take Your Game to the Next Level?</h2>
+                <p class="text-lg sm:text-xl mb-8">
+                    Join thousands of players and teams already improving their performance with Rift Seer.
+                    Start today and experience the future of gaming analytics!
+                </p>
+                <a href="#get-started" class="green-btn text-white py-3 px-8 rounded-full transition duration-300">Get Started Now</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black py-8">
+            <div class="container mx-auto text-center text-white">
+                <p class="text-lg">&copy; 2025 Rift Seer. All rights reserved.</p>
+                <div class="space-x-6 mt-4">
+                    <a href="#privacy-policy" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#terms-of-service" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="#contact-us" class="text-gray-400 hover:text-white">Contact Us</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
